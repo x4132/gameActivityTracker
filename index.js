@@ -1,9 +1,12 @@
-const { app, BrowserWindow } = require("electron");
+const { app, BrowserWindow, ipcMain } = require("electron");
+const fs = require("fs");
 const path = require("path");
 const url = require("url");
 
+var window;
+
 function loadApp() {
-    const window = new BrowserWindow({
+    window = new BrowserWindow({
         width: 600,
         height: 800,
 
@@ -21,6 +24,15 @@ function loadApp() {
     })
     window.loadURL(reactAppUrl);
 }
+
+ipcMain.on("getAppData", () => {
+    const appDataPath = app.getPath("userData");
+    fs.readFile(path.join(appDataPath, "./data.json"), { encoding: "utf-8" }, (err, data) => {
+        if (err) throw new Error(err);
+        var json = JSON.parse(data);
+        window.webContents.send('appData', json);
+    })
+})
 
 app.whenReady().then(() => {
     loadApp();
