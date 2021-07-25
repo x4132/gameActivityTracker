@@ -12,6 +12,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "lodash": "^4.17.21",
     "tasklist": "^4.0.1"
   },
   "devDependencies": {
