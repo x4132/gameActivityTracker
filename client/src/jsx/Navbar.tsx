@@ -5,10 +5,10 @@ export default function Navbar() {
         <div className="container-fluid" >
             <Link to="/" className="navbar-brand" >Time Tracker</Link>
             <ul className="navbar-nav me-auto mb-2 mb-lg-0" >
-                <li className="nav-item" >
+                <li className="nav-item-1" >
                     <Link to="/history" className="nav-link" >History</Link>
                 </li>
-                <li className="nav-item" >
+                <li className="nav-item-2" >
                     <Link to="/addgame" className="nav-link" >Add a game</Link>
                 </li>
             </ul>
