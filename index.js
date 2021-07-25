@@ -2,13 +2,14 @@ const { app, BrowserWindow, ipcMain } = require("electron");
 const fs = require("fs");
 const path = require("path");
 const url = require("url");
+const tasklist = require("tasklist");
 
 var window;
 
 function loadApp() {
     window = new BrowserWindow({
-        width: 600,
-        height: 800,
+        width: 800,
+        height: 600,
 
         webPreferences: {
             nodeIntegration: false,
@@ -17,11 +18,12 @@ function loadApp() {
         }
     })
 
-    const reactAppUrl = process.env.ELECTRON_START_URL || url.format({
+    /*const reactAppUrl = url.format({
         pathname: path.join(__dirname, "./client/build/index.html"),
         protocol: "file:",
         slashes: true
-    })
+    })*/
+    const reactAppUrl = "http://localhost:3000";
     window.loadURL(reactAppUrl);
 }
 
