@@ -64,7 +64,7 @@ export default function Dashboard() {
                 <VictoryChart>
                     <VictoryLine
                         style={{
-                            data: { stroke: "#0d6efd" }
+                            data: { stroke: "#eb3535" }
                         }}
 
                         data={graphArray}
