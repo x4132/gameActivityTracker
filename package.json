@@ -5,14 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "set ELECTRON_DEV_URL=http://localhost:3000 && electron .",
+    "start": "electron .",
     "prod": "electron ."
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "ps-node": "^0.1.6"
+    "tasklist": "^4.0.1"
   },
   "devDependencies": {
     "electron": "^13.1.7"

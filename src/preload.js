@@ -1,22 +1,33 @@
 const { ipcRenderer, contextBridge } = require("electron");
-const ps = require("ps-node");
 
 var data;
 
-function loadGameActivity() {
+function loadGameActivity(callback) {
     ipcRenderer.send("getAppData");
     ipcRenderer.once("appData", (evt, json) => {
         data = json;
-        return json?.activity;
+        console.log(data);
+        callback(json);
     });
 }
 
 function scanProcesses() {
-    data.processes.foreach((item) => {
-        
+    tasklist().then((ps) => {
+        var processes = new Set();
+        var isActive = [];
+        ps.forEach((process) => {
+            processes.add(process.imageName);
+        })
+        processes = Array.from(processes);
+        data.tracking.forEach((item) => {
+            if (processes.indexOf(item) != -1) {
+                isActive.push(item);
+            }
+        })
     })
 }
 
 contextBridge.exposeInMainWorld("electron", {
-    loadGameActivity: loadGameActivity
+    loadGameActivity: loadGameActivity,
+    scanProcesses: scanProcesses
 })

@@ -13,14 +13,14 @@ import "./css/main.css";
 
 function App() {
   return (
-    <Router>
-      <div className="w-100 h-100 bg-dark text-light" >
-        <Navbar />
-      </div>
-      <Switch>
-        <Route path="/" component={Dashboard} />
-      </Switch>
-    </Router>
+    <div className="w-100 h-100 bg-dark text-light" >
+      <Router>
+        <Navbar/>
+        <Switch>
+          <Route path="/" component={Dashboard} />
+        </Switch>
+      </Router>
+    </div>
   );
 }
 
