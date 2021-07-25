@@ -37,7 +37,6 @@ a {
 }
 .navbar-brand {
     font-size: 40px;
-    margin-left: 42%;
     text-align: center;
 }
 .navbar-brand:hover {
@@ -54,11 +53,11 @@ a {
     color: var(--bs-offwhite) !important;
 }
 .nav-item-1 {
-    margin-left: 250px;
+    margin-left: 850px;
 }
 .nav-item-2 {
-    margin-left:40px;
-    margin-right:40px;
+    margin-left:35px;
+    margin-right:35px;
 }
 .p-2 {
     background-color: var(--bs-purple) !important;
