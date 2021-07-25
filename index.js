@@ -36,6 +36,10 @@ ipcMain.on("getAppData", () => {
     })
 })
 
+ipcMain.on("userDataPath", () => {
+    window.webContents.send("userDataPath", app.getPath("userData"));
+})
+
 app.whenReady().then(() => {
     loadApp();
 
